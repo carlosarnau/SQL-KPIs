@@ -1,9 +1,9 @@
 SELECT
-    DATE(lastControl) as "Date",
-    COUNT(DISTINCT player_id) as "DAU"
+    DATE(Date) as "Date",
+    COUNT(DISTINCT playerId) as "DAU"
 FROM
-    carlosam15.Sessions
+    fernandofg2.Players
 WHERE
-    lastControl >= '2020-01-02 12:22:59' and lastControl < '2020-01-03 22:59:37'
+    Date >= '2022-01-01 05:10:02' and Date < '2022-01-05 02:18:39'
 GROUP BY
-    DATE(lastControl);
+    DATE(Date);
