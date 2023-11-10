@@ -1,7 +1,9 @@
-SELECT (country) as "Contry Name",
-avg(timestampdiff(second, start, end))/60 as "Session time"
-
-FROM carlosam15.Users u left join carlosam15.Sessions s
-on u.user_id = s.player_id
-group by u.country
-order by 2 desc
+SELECT
+	Name AS "User",
+	AVG(TIMESTAMPDIFF(second, startSession, endSession)) / 60 AS "Avg hours spend"
+FROM
+	fernandofg2.Sessions s
+LEFT JOIN
+	fernandofg2.Players p ON s.userId = p.playerId
+GROUP BY
+	p.playerId;

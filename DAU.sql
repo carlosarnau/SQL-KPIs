@@ -1,9 +1,8 @@
 SELECT
-    DATE(Date) as "Date",
-    COUNT(DISTINCT playerId) as "DAU"
+    DATE(Date) AS "Date",
+    COUNT(DISTINCT playerId) AS "DAU",
+	COUNT(DISTINCT playerId) / 3003 AS "DAU %"
 FROM
     fernandofg2.Players
-WHERE
-    Date >= '2022-01-01 05:10:02' and Date < '2022-01-05 02:18:39'
 GROUP BY
     DATE(Date);

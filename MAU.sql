@@ -1,8 +1,10 @@
-select month(Date) as "Month nº", count(distinct playerId) as "MAU"
-
-from fernandofg2.Players p
-join fernandofg2.Sessions s
-
-on s.userId = p.playerId
-group by month(Date)
-order by 1 asc;
+SELECT
+	MONTH(Date) AS "Month nº",
+    COUNT(distinct playerId) AS "MAU",
+	COUNT(DISTINCT playerId) / 3003 AS "MAU %"
+FROM
+	fernandofg2.Players p
+JOIN
+	fernandofg2.Sessions s ON s.userId = p.playerId
+GROUP BY
+	MONTH(Date);

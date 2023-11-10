@@ -1,3 +1,9 @@
-select sum(totalPrice) / 1000 as "ARPPU"
-from carlosam15.sessions s
-join carlosam15.transactions t on s.player_id = t.player_id
+SELECT
+	Name AS "User",
+	SUM(itemId) / 3003 AS "ARPU"
+FROM
+	fernandofg2.Players p
+JOIN
+	fernandofg2.Purchases t ON p.playerId = t.userId
+GROUP BY
+	p.playerId;
