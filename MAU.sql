@@ -1,7 +1,7 @@
 SELECT
 	MONTH(Date) AS "Month nº",
-    COUNT(distinct playerId) AS "MAU",
-	COUNT(DISTINCT playerId) / 3003 AS "MAU %"
+    COUNT(DISTINCT playerId) AS "MAU",
+	COUNT(DISTINCT playerId) / 3003 * 100 AS "MAU %"
 FROM
 	fernandofg2.Players p
 JOIN
