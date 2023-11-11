@@ -1,0 +1,15 @@
+WITH DAU AS (
+    SELECT COUNT(DISTINCT playerId) AS dau
+    FROM fernandofg2.Players
+    WHERE DATE(Date) = "2022-04-09"
+),
+MAU AS (
+    SELECT COUNT(DISTINCT playerId) AS mau
+    FROM fernandofg2.Players
+    WHERE EXTRACT(YEAR_MONTH FROM Date) = EXTRACT(YEAR_MONTH FROM "2022-04-09")
+)
+SELECT
+    DAU.DAU AS "DAU",
+    MAU.MAU AS "MAU",
+    DAU.DAU / MAU.MAU * 100 AS "Stickiness"
+FROM DAU DAU, MAU MAU;
